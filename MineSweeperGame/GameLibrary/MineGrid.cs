@@ -28,6 +28,10 @@ namespace GameLibrary
             {
                 throw new InvalidOperationException("Too many mines");
             }
+
+            // Initialise grid.
+            PlaceMines();
+            GenerateBombMarkers();
         }
 
         private void PlaceMines()
