@@ -54,5 +54,35 @@ namespace GameLibrary
                 }
             }
         }
+
+        private void GenerateBombMarkers()
+        {
+
+        }
+
+        private int MinesAroundPosition(int x, int y)
+        {
+            int output = 0;
+
+            // Loop from left to right in 3x3 grid around (x,y).
+            for (int i = x - 1; i <= x + 1; i++)
+            {
+                // Loop from top to bottom in 3x3 grid around (x,y).
+                for (int j = y - 1; j <= y + 1; j++)
+                {
+                    // Check (i,j) is within grid.
+                    if (i >= 0 && j >= 0 && i < Width && j < Height)
+                    {
+                        // If bomb at (i,j).
+                        if (GameGrid[i, j] == -1)
+                        {
+                            output++;
+                        }
+                    }
+                }
+            }
+
+            return output;
+        }
     }
 }
