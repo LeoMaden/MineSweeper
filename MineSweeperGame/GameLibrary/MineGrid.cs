@@ -22,6 +22,12 @@ namespace GameLibrary
             // Initialise fields in constructor.
             GameGrid = new int[width, height];
             NumberOfMines = numMines;
+
+            // If there are too many mines.
+            if (NumberOfMines > (0.4 * Width * Height))
+            {
+                throw new InvalidOperationException("Too many mines");
+            }
         }
 
         private void PlaceMines()
