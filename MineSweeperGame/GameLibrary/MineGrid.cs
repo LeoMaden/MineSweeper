@@ -26,15 +26,26 @@ namespace GameLibrary
 
         private void PlaceMines()
         {
-            // Loop over how many mines there are.
+            // Repeat for each mine to be placed.
             for (int i = 0; i < NumberOfMines; i++)
             {
                 Random rand = new Random();
 
-                int randX = rand.Next(Width);
-                int randY = rand.Next(Height);
+                // Loop until empty location found.
+                while (true)
+                {
+                    // Generate random grid coordinates.
+                    int randX = rand.Next(Width);
+                    int randY = rand.Next(Height);
 
-
+                    // If position is empty.
+                    if (GameGrid[randX, randY] == 0)
+                    {
+                        // Set position to bomb.
+                        GameGrid[randX, randY] = -1;
+                        break;
+                    } 
+                }
             }
         }
     }
