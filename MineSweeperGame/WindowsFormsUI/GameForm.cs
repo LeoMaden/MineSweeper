@@ -66,12 +66,15 @@ namespace WindowsFormsUI
             switch (mouseEvent.Button)
             {
                 case MouseButtons.Left:
-                    Tuple<int, int> gridCoords = (Tuple<int, int>)buttonClicked.Tag;
-
-                    int x = gridCoords.Item1;
-                    int y = gridCoords.Item2;
-
-                    MessageBox.Show($"{ x }, { y }");
+                    // There are no bombs surrounding button clicked.
+                    if (ValueOfGridUnderButton(buttonClicked) == 0)
+                    {
+                        ButtonNoBombsAroundLeftClicked(buttonClicked);
+                    }
+                    else
+                    {
+                        buttonClicked.Hide();
+                    }
 
                     break;
                 case MouseButtons.None:
@@ -98,6 +101,47 @@ namespace WindowsFormsUI
                 default:
                     break;
             }
+        }
+
+        private void ButtonNoBombsAroundLeftClicked(Button buttonClicked)
+        {
+            // Hide button from view to expose behind grid.
+            buttonClicked.Hide();
+
+            // Coords of button which was clicked.
+            Tuple<int, int> gridCoords = (Tuple<int, int>)buttonClicked.Tag;
+
+            // Get coords of surrounding buttons to one clicked.
+            List<Tuple<int, int>> surrounding = MineGrid.SurroundingCells(gridCoords);
+
+            // Get button objects adjacent to button which was clicked.
+            IEnumerable<Button> adjButtons = from Control control in GridPanel.Controls
+                                             where control.GetType() == typeof(Button) 
+                                                && surrounding.Contains(control.Tag)
+                                             select (Button)control;
+                                             
+
+            foreach (Button button in adjButtons)
+            {
+                // Only hide and check button if it is visible.
+                if (button.Visible == true)
+                {
+                    button.Hide();
+
+                    // No bombs around button, recursively click it.
+                    if (ValueOfGridUnderButton(button) == 0)
+                    {
+                        ButtonNoBombsAroundLeftClicked(button);
+                    } 
+                }
+            }
+        }
+
+        private int ValueOfGridUnderButton(Button button)
+        {
+            Tuple<int, int> coords = (Tuple<int, int>)(button.Tag);
+
+            return MineGrid.GameGrid[coords.Item1, coords.Item2];
         }
 
         private void InitialiseGridPanel()
