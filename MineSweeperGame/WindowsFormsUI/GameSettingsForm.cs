@@ -16,5 +16,19 @@ namespace WindowsFormsUI
         {
             InitializeComponent();
         }
+
+        private void CustomDifficultyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            // If custom option is selected.
+            if (CustomDifficultyRadio.Checked == true)
+            {
+                CustomDifficultyGroup.Enabled = true;
+            }
+            // If other difficulty selected.
+            else
+            {
+                CustomDifficultyGroup.Enabled = false;
+            }
+        }
     }
 }
