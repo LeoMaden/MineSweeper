@@ -99,8 +99,11 @@ namespace GameLibrary
             return output;
         }
 
-        public List<Tuple<int, int>> SurroundingCells(int x, int y)
+        public List<Tuple<int, int>> SurroundingCells(Tuple<int, int> cell)
         {
+            int x = cell.Item1;
+            int y = cell.Item2;
+
             List<Tuple<int, int>> output = new List<Tuple<int, int>>();
 
             // Loop from left to right in 3x3 grid around (x,y).
