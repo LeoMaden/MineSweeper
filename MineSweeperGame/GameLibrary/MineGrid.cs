@@ -116,7 +116,7 @@ namespace GameLibrary
                     if (i >= 0 && j >= 0 && i < Width && j < Height)
                     {
                         // (i,j) is not (x,y).
-                        if (i != x && j != y)
+                        if (i != x || j != y)
                         {
                             output.Add(Tuple.Create(i, j));
                         }
