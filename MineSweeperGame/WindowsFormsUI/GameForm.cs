@@ -16,6 +16,10 @@ namespace WindowsFormsUI
         private int GridHeight;
         private int GridMines;
 
+        private int CellWidth = 10;
+        private int CellHeight = 10;
+
+
         public GameForm(int gridWidth, int gridHeight, int gridMines)
         {
             // Set fields from constructor parameters.
@@ -24,6 +28,11 @@ namespace WindowsFormsUI
             GridMines = gridMines;
 
             InitializeComponent();
+        }
+
+        private void DrawBehindGrid()
+        {
+
         }
     }
 }
