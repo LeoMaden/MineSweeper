@@ -98,5 +98,30 @@ namespace GameLibrary
 
             return output;
         }
+
+        public List<Tuple<int, int>> SurroundingCells(int x, int y)
+        {
+            List<Tuple<int, int>> output = new List<Tuple<int, int>>();
+
+            // Loop from left to right in 3x3 grid around (x,y).
+            for (int i = x - 1; i <= x + 1; i++)
+            {
+                // Loop from top to bottom in 3x3 grid around (x,y).
+                for (int j = y - 1; j <= y + 1; j++)
+                {
+                    // Check (i,j) is within grid.
+                    if (i >= 0 && j >= 0 && i < Width && j < Height)
+                    {
+                        // (i,j) is not (x,y).
+                        if (i != x && j != y)
+                        {
+                            output.Add(Tuple.Create(i, j));
+                        }
+                    }
+                }
+            }
+
+            return output;
+        }
     }
 }
