@@ -81,8 +81,24 @@ namespace WindowsFormsUI
                     label.TabIndex = 0;
                     label.TextAlign = ContentAlignment.MiddleCenter;
                     label.Font = new Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    
+                    // Decide what to populate text of cell with.
+                    switch (MineGrid.GameGrid[x, y])
+                    {
+                        case -1:
+                            // TODO - Bomb image
+                            label.Text = "B";
+                            break;
 
-                    label.Text = MineGrid.GameGrid[x, y].ToString();
+                        case 0:
+                            // No bombs nearby.
+                            label.Text = "";
+                            break;
+
+                        default:
+                            label.Text = MineGrid.GameGrid[x, y].ToString();
+                            break;
+                    }
 
                     gridPanel.Controls.Add(label);
                 }
