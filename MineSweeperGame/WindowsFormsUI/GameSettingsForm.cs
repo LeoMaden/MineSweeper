@@ -130,7 +130,9 @@ namespace WindowsFormsUI
 
         private void StartNewGameButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
+            // MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
+
+
         }
 
         #region Preset difficulty buttons Click events
