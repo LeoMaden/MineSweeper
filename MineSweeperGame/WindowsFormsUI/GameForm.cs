@@ -12,8 +12,17 @@ namespace WindowsFormsUI
 {
     public partial class GameForm : Form
     {
-        public GameForm()
+        private int GridWidth;
+        private int GridHeight;
+        private int GridMines;
+
+        public GameForm(int gridWidth, int gridHeight, int gridMines)
         {
+            // Set fields from constructor parameters.
+            GridWidth = gridWidth;
+            GridHeight = gridHeight;
+            GridMines = gridMines;
+
             InitializeComponent();
         }
     }
