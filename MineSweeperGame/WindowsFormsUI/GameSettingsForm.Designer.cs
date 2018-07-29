@@ -65,6 +65,7 @@
             this.StartNewGameButton.TabIndex = 0;
             this.StartNewGameButton.Text = "Start";
             this.StartNewGameButton.UseVisualStyleBackColor = false;
+            this.StartNewGameButton.Click += new System.EventHandler(this.StartNewGameButton_Click);
             // 
             // HardDifficultyRadio
             // 
@@ -184,6 +185,7 @@
             this.SelectedCustomMinesLabel.Size = new System.Drawing.Size(62, 37);
             this.SelectedCustomMinesLabel.TabIndex = 7;
             this.SelectedCustomMinesLabel.Text = "009";
+            this.SelectedCustomMinesLabel.TextChanged += new System.EventHandler(this.SelectedCustomMinesLabel_TextChanged);
             // 
             // SelectedCustomHeightLabel
             // 
@@ -194,6 +196,7 @@
             this.SelectedCustomHeightLabel.Size = new System.Drawing.Size(62, 37);
             this.SelectedCustomHeightLabel.TabIndex = 7;
             this.SelectedCustomHeightLabel.Text = "009";
+            this.SelectedCustomHeightLabel.TextChanged += new System.EventHandler(this.SelectedCustomHeightLabel_TextChanged);
             // 
             // SelectedCustomWidthLabel
             // 
@@ -204,6 +207,7 @@
             this.SelectedCustomWidthLabel.Size = new System.Drawing.Size(62, 37);
             this.SelectedCustomWidthLabel.TabIndex = 7;
             this.SelectedCustomWidthLabel.Text = "009";
+            this.SelectedCustomWidthLabel.TextChanged += new System.EventHandler(this.SelectedCustomWidthLabel_TextChanged);
             // 
             // CustomMinesSelector
             // 

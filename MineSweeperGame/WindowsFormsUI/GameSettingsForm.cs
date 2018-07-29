@@ -12,6 +12,10 @@ namespace WindowsFormsUI
 {
     public partial class GameSettingsForm : Form
     {
+        private int SelectedWidth;
+        private int SelectedHeight;
+        private int SelectedMines;
+
         public GameSettingsForm()
         {
             InitializeComponent();
@@ -21,6 +25,7 @@ namespace WindowsFormsUI
         {
             CustomWidthSelector.Value = 15;
             CustomHeightSelector.Value = 10;
+            CustomMinesSelector.Value = 30;
 
             UpdateCustomMineValues();
         }
@@ -39,14 +44,14 @@ namespace WindowsFormsUI
             }
         }
 
+        #region Custom selectors ValueChanged events
+
         private void CustomWidthSelector_ValueChanged(object sender, EventArgs e)
         {
             // Update value in label for width scroll bar.
             int selectedWidth = CustomWidthSelector.Value;
             // Pad width with leading zeros before setting label text.
             SelectedCustomWidthLabel.Text = selectedWidth.ToString("000");
-
-            UpdateCustomMineValues();
         }
 
         private void CustomHeightSelector_ValueChanged(object sender, EventArgs e)
@@ -55,8 +60,6 @@ namespace WindowsFormsUI
             int selectedHeight = CustomHeightSelector.Value;
             // Pad height with leading zeros before setting label text.
             SelectedCustomHeightLabel.Text = selectedHeight.ToString("000");
-
-            UpdateCustomMineValues();
         }
 
         private void CustomMinesSelector_ValueChanged(object sender, EventArgs e)
@@ -66,6 +69,34 @@ namespace WindowsFormsUI
             // Pad mines with leading zeros before setting label text.
             SelectedCustomMinesLabel.Text = selectedMines.ToString("000");
         }
+
+        #endregion
+
+        #region Custom labels TextChanged events
+
+        private void SelectedCustomWidthLabel_TextChanged(object sender, EventArgs e)
+        {
+            // Update selected width field
+            SelectedWidth = int.Parse(SelectedCustomWidthLabel.Text);
+
+            UpdateCustomMineValues();
+        }
+
+        private void SelectedCustomHeightLabel_TextChanged(object sender, EventArgs e)
+        {
+            // Update selected height field
+            SelectedHeight = int.Parse(SelectedCustomHeightLabel.Text);
+
+            UpdateCustomMineValues();
+        }
+
+        private void SelectedCustomMinesLabel_TextChanged(object sender, EventArgs e)
+        {
+            // Update selected mines field
+            SelectedMines = int.Parse(SelectedCustomMinesLabel.Text);
+        }
+
+        #endregion
 
         private int CalculateMaxMines()
         {
@@ -90,5 +121,11 @@ namespace WindowsFormsUI
                 SelectedCustomMinesLabel.Text = maxMines.ToString("000");
             }
         }
+
+        private void StartNewGameButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
+        }
+
     }
 }
