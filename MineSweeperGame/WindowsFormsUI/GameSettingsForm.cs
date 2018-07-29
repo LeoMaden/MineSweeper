@@ -36,6 +36,12 @@ namespace WindowsFormsUI
             if (CustomDifficultyRadio.Checked == true)
             {
                 CustomDifficultyGroup.Enabled = true;
+
+                // Update selected values.
+                SelectedWidth = int.Parse(SelectedCustomWidthLabel.Text);
+                SelectedHeight = int.Parse(SelectedCustomHeightLabel.Text);
+                SelectedMines = int.Parse(SelectedCustomMinesLabel.Text);
+
             }
             // If other difficulty selected.
             else
@@ -127,5 +133,25 @@ namespace WindowsFormsUI
             MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
         }
 
+        private void EasyDifficultyRadio_Click(object sender, EventArgs e)
+        {
+            SelectedWidth = 9;
+            SelectedHeight = 9;
+            SelectedMines = 10;
+        }
+
+        private void MediumDifficultyRadio_Click(object sender, EventArgs e)
+        {
+            SelectedWidth = 16;
+            SelectedHeight = 16;
+            SelectedMines = 40;
+        }
+
+        private void HardDifficultyRadio_Click(object sender, EventArgs e)
+        {
+            SelectedWidth = 30;
+            SelectedHeight = 16;
+            SelectedMines = 99;
+        }
     }
 }

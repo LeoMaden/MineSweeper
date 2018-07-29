@@ -80,6 +80,7 @@
             this.HardDifficultyRadio.Text = "Hard";
             this.HardDifficultyRadio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.HardDifficultyRadio.UseVisualStyleBackColor = false;
+            this.HardDifficultyRadio.Click += new System.EventHandler(this.HardDifficultyRadio_Click);
             // 
             // MediumDifficultyRadio
             // 
@@ -94,6 +95,7 @@
             this.MediumDifficultyRadio.Text = "Medium";
             this.MediumDifficultyRadio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MediumDifficultyRadio.UseVisualStyleBackColor = false;
+            this.MediumDifficultyRadio.Click += new System.EventHandler(this.MediumDifficultyRadio_Click);
             // 
             // EasyDifficultyRadio
             // 
@@ -108,6 +110,7 @@
             this.EasyDifficultyRadio.Text = "Easy";
             this.EasyDifficultyRadio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.EasyDifficultyRadio.UseVisualStyleBackColor = false;
+            this.EasyDifficultyRadio.Click += new System.EventHandler(this.EasyDifficultyRadio_Click);
             // 
             // EasyDifficultyLabel
             // 
