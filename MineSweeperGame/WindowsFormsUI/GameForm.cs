@@ -66,18 +66,21 @@ namespace WindowsFormsUI
             switch (mouseEvent.Button)
             {
                 case MouseButtons.Left:
-                    // There are no bombs surrounding button clicked.
-                    if (ValueOfGridUnderButton(buttonClicked) == 0)
+                    switch (ValueOfGridUnderButton(buttonClicked))
                     {
-                        ButtonNoBombsAroundLeftClicked(buttonClicked);
+                        // There are no bombs surrounding button clicked.
+                        case 0:
+                            ButtonNoBombsAroundLeftClicked(buttonClicked);
+                            break;
+                        // Bomb on clicked location.
+                        case -1:
+                            MessageBox.Show("You lost");
+                            break;
+                        // Otherwise.
+                        default:
+                            buttonClicked.Hide();
+                            break;  
                     }
-                    else
-                    {
-                        buttonClicked.Hide();
-                    }
-
-                    break;
-                case MouseButtons.None:
                     break;
                 // Right click to flag cell.
                 case MouseButtons.Right:
@@ -91,14 +94,6 @@ namespace WindowsFormsUI
                         buttonClicked.Text = "";
                     }
 
-                    break;
-                case MouseButtons.Middle:
-                    break;
-                case MouseButtons.XButton1:
-                    break;
-                case MouseButtons.XButton2:
-                    break;
-                default:
                     break;
             }
         }
