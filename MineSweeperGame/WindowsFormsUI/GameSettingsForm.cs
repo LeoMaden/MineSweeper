@@ -133,6 +133,8 @@ namespace WindowsFormsUI
             MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
         }
 
+        #region Preset difficulty buttons Click events
+
         private void EasyDifficultyRadio_Click(object sender, EventArgs e)
         {
             SelectedWidth = 9;
@@ -153,5 +155,7 @@ namespace WindowsFormsUI
             SelectedHeight = 16;
             SelectedMines = 99;
         }
+
+        #endregion  
     }
 }
