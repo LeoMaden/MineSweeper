@@ -1,0 +1,48 @@
+Size = new Size(600, 600);
+            Padding = new Padding(0);
+
+            int gridWidth = 25;
+            int gridHeight = 20;
+
+            int cellWidth = 20;
+            int cellHeight = cellWidth;
+
+            int startX = 0;
+            int startY = 0;
+
+            int gridPanelWidth = cellWidth * gridWidth;
+            int gridPanelHeight = cellHeight * gridHeight;
+
+            Point gridCentrePoint = new Point(Size.Width / 2, Size.Height / 2 + 100);
+
+            Panel GridPanel = new Panel();
+            GridPanel.Anchor = AnchorStyles.None;
+            GridPanel.Size = new Size(gridPanelWidth, gridPanelHeight);
+            GridPanel.Location = new Point(gridCentrePoint.X - (gridPanelWidth / 2), gridCentrePoint.Y - (gridPanelHeight / 2));
+            GridPanel.TabIndex = 0;
+            GridPanel.Padding = new Padding(0);
+            GridPanel.Margin = new Padding(0);
+            GridPanel.BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(GridPanel);
+
+            for (int x = 0; x < gridWidth; x++)
+            {
+                for (int y = 0; y < gridHeight; y++)
+                {
+                    Label label = new Label();
+
+                    label.BackColor = SystemColors.ControlDark;
+                    label.BorderStyle = BorderStyle.FixedSingle;
+                    label.FlatStyle = FlatStyle.Flat;
+                    label.Location = new Point(x * cellWidth, y * cellHeight);
+                    label.Margin = new Padding(0);
+                    label.Name = $"gridCell{ x }{ y }";
+                    label.Padding = new Padding(2);
+                    label.Size = new Size(cellWidth, cellHeight);
+                    label.TabIndex = 0;
+                    label.Text = "0";
+                    label.TextAlign = ContentAlignment.MiddleCenter;
+
+                    GridPanel.Controls.Add(label);
+                }
+            }
