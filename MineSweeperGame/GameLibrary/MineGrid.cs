@@ -61,7 +61,17 @@ namespace GameLibrary
 
         private void GenerateBombMarkers()
         {
-
+            for (int x = 0; x < Width; x++)
+            {
+                for (int y = 0; y < Height; y++)
+                {
+                    // Not a bomb at location.
+                    if (GameGrid[x, y] != -1)
+                    {
+                        GameGrid[x, y] = MinesAroundPosition(x, y);
+                    }
+                }
+            }
         }
 
         private int MinesAroundPosition(int x, int y)
