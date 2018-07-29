@@ -60,11 +60,13 @@ namespace WindowsFormsUI
 
         private void GameForm_CellButtonClicked(object sender, EventArgs e)
         {
+            // Cast eventargs and object to correct type.
             MouseEventArgs mouseEvent = (MouseEventArgs)e;
             Button buttonClicked = (Button)sender;
 
             switch (mouseEvent.Button)
             {
+                // Left click to expose cell.
                 case MouseButtons.Left:
                     // If button has been flagged do not allow left click.
                     if (buttonClicked.Text == "F")
@@ -88,8 +90,10 @@ namespace WindowsFormsUI
                             buttonClicked.Hide();
                             break;  
                     }
+
                     break;
-                // Right click to flag cell.
+
+                // Right click to flag/unflag cell.
                 case MouseButtons.Right:
                     if (buttonClicked.Text == "")
                     {
