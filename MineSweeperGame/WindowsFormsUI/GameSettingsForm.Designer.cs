@@ -37,22 +37,22 @@
             this.HardDifficultyLabel = new System.Windows.Forms.Label();
             this.CustomDifficultyRadio = new System.Windows.Forms.RadioButton();
             this.CustomDifficultyGroup = new System.Windows.Forms.Panel();
-            this.CustomWidthLabel = new System.Windows.Forms.Label();
-            this.CustomHeightLabel = new System.Windows.Forms.Label();
-            this.CustomMinesLabel = new System.Windows.Forms.Label();
-            this.CustomWidthRangeLabel = new System.Windows.Forms.Label();
-            this.CustomHeightRangeLabel = new System.Windows.Forms.Label();
-            this.CustomMinesRangeLabel = new System.Windows.Forms.Label();
-            this.CustomWidthSelector = new System.Windows.Forms.TrackBar();
-            this.CustomHeightSelector = new System.Windows.Forms.TrackBar();
-            this.CustomMinesSelector = new System.Windows.Forms.TrackBar();
-            this.SelectedCustomWidthLabel = new System.Windows.Forms.Label();
-            this.SelectedCustomHeightLabel = new System.Windows.Forms.Label();
             this.SelectedCustomMinesLabel = new System.Windows.Forms.Label();
+            this.SelectedCustomHeightLabel = new System.Windows.Forms.Label();
+            this.SelectedCustomWidthLabel = new System.Windows.Forms.Label();
+            this.CustomMinesSelector = new System.Windows.Forms.TrackBar();
+            this.CustomHeightSelector = new System.Windows.Forms.TrackBar();
+            this.CustomWidthSelector = new System.Windows.Forms.TrackBar();
+            this.CustomMinesRangeLabel = new System.Windows.Forms.Label();
+            this.CustomHeightRangeLabel = new System.Windows.Forms.Label();
+            this.CustomWidthRangeLabel = new System.Windows.Forms.Label();
+            this.CustomMinesLabel = new System.Windows.Forms.Label();
+            this.CustomHeightLabel = new System.Windows.Forms.Label();
+            this.CustomWidthLabel = new System.Windows.Forms.Label();
             this.CustomDifficultyGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomMinesSelector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).BeginInit();
             this.SuspendLayout();
             // 
             // StartNewGameButton
@@ -175,78 +175,47 @@
             this.CustomDifficultyGroup.Size = new System.Drawing.Size(303, 185);
             this.CustomDifficultyGroup.TabIndex = 8;
             // 
-            // CustomWidthLabel
+            // SelectedCustomMinesLabel
             // 
-            this.CustomWidthLabel.AutoSize = true;
-            this.CustomWidthLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomWidthLabel.Location = new System.Drawing.Point(3, 10);
-            this.CustomWidthLabel.Name = "CustomWidthLabel";
-            this.CustomWidthLabel.Size = new System.Drawing.Size(79, 32);
-            this.CustomWidthLabel.TabIndex = 0;
-            this.CustomWidthLabel.Text = "Width";
+            this.SelectedCustomMinesLabel.AutoSize = true;
+            this.SelectedCustomMinesLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomMinesLabel.Location = new System.Drawing.Point(240, 116);
+            this.SelectedCustomMinesLabel.Name = "SelectedCustomMinesLabel";
+            this.SelectedCustomMinesLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomMinesLabel.TabIndex = 7;
+            this.SelectedCustomMinesLabel.Text = "009";
             // 
-            // CustomHeightLabel
+            // SelectedCustomHeightLabel
             // 
-            this.CustomHeightLabel.AutoSize = true;
-            this.CustomHeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomHeightLabel.Location = new System.Drawing.Point(3, 63);
-            this.CustomHeightLabel.Name = "CustomHeightLabel";
-            this.CustomHeightLabel.Size = new System.Drawing.Size(87, 32);
-            this.CustomHeightLabel.TabIndex = 1;
-            this.CustomHeightLabel.Text = "Height";
+            this.SelectedCustomHeightLabel.AutoSize = true;
+            this.SelectedCustomHeightLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomHeightLabel.Location = new System.Drawing.Point(240, 63);
+            this.SelectedCustomHeightLabel.Name = "SelectedCustomHeightLabel";
+            this.SelectedCustomHeightLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomHeightLabel.TabIndex = 7;
+            this.SelectedCustomHeightLabel.Text = "009";
             // 
-            // CustomMinesLabel
+            // SelectedCustomWidthLabel
             // 
-            this.CustomMinesLabel.AutoSize = true;
-            this.CustomMinesLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomMinesLabel.Location = new System.Drawing.Point(3, 116);
-            this.CustomMinesLabel.Name = "CustomMinesLabel";
-            this.CustomMinesLabel.Size = new System.Drawing.Size(80, 32);
-            this.CustomMinesLabel.TabIndex = 2;
-            this.CustomMinesLabel.Text = "Mines";
+            this.SelectedCustomWidthLabel.AutoSize = true;
+            this.SelectedCustomWidthLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomWidthLabel.Location = new System.Drawing.Point(240, 10);
+            this.SelectedCustomWidthLabel.Name = "SelectedCustomWidthLabel";
+            this.SelectedCustomWidthLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomWidthLabel.TabIndex = 7;
+            this.SelectedCustomWidthLabel.Text = "009";
             // 
-            // CustomWidthRangeLabel
+            // CustomMinesSelector
             // 
-            this.CustomWidthRangeLabel.AutoSize = true;
-            this.CustomWidthRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomWidthRangeLabel.Location = new System.Drawing.Point(9, 42);
-            this.CustomWidthRangeLabel.Name = "CustomWidthRangeLabel";
-            this.CustomWidthRangeLabel.Size = new System.Drawing.Size(53, 21);
-            this.CustomWidthRangeLabel.TabIndex = 3;
-            this.CustomWidthRangeLabel.Text = "[9-30]";
-            // 
-            // CustomHeightRangeLabel
-            // 
-            this.CustomHeightRangeLabel.AutoSize = true;
-            this.CustomHeightRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomHeightRangeLabel.Location = new System.Drawing.Point(9, 95);
-            this.CustomHeightRangeLabel.Name = "CustomHeightRangeLabel";
-            this.CustomHeightRangeLabel.Size = new System.Drawing.Size(53, 21);
-            this.CustomHeightRangeLabel.TabIndex = 3;
-            this.CustomHeightRangeLabel.Text = "[9-24]";
-            // 
-            // CustomMinesRangeLabel
-            // 
-            this.CustomMinesRangeLabel.AutoSize = true;
-            this.CustomMinesRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomMinesRangeLabel.Location = new System.Drawing.Point(9, 148);
-            this.CustomMinesRangeLabel.Name = "CustomMinesRangeLabel";
-            this.CustomMinesRangeLabel.Size = new System.Drawing.Size(49, 21);
-            this.CustomMinesRangeLabel.TabIndex = 3;
-            this.CustomMinesRangeLabel.Text = "[9-xx]";
-            // 
-            // CustomWidthSelector
-            // 
-            this.CustomWidthSelector.LargeChange = 1;
-            this.CustomWidthSelector.Location = new System.Drawing.Point(88, 18);
-            this.CustomWidthSelector.Maximum = 30;
-            this.CustomWidthSelector.Minimum = 9;
-            this.CustomWidthSelector.Name = "CustomWidthSelector";
-            this.CustomWidthSelector.Size = new System.Drawing.Size(159, 45);
-            this.CustomWidthSelector.TabIndex = 4;
-            this.CustomWidthSelector.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.CustomWidthSelector.Value = 9;
-            this.CustomWidthSelector.Scroll += new System.EventHandler(this.CustomWidthSelector_Scroll);
+            this.CustomMinesSelector.LargeChange = 1;
+            this.CustomMinesSelector.Location = new System.Drawing.Point(88, 124);
+            this.CustomMinesSelector.Minimum = 9;
+            this.CustomMinesSelector.Name = "CustomMinesSelector";
+            this.CustomMinesSelector.Size = new System.Drawing.Size(159, 45);
+            this.CustomMinesSelector.TabIndex = 6;
+            this.CustomMinesSelector.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomMinesSelector.Value = 9;
+            this.CustomMinesSelector.ValueChanged += new System.EventHandler(this.CustomMinesSelector_ValueChanged);
             // 
             // CustomHeightSelector
             // 
@@ -259,49 +228,80 @@
             this.CustomHeightSelector.TabIndex = 5;
             this.CustomHeightSelector.TickStyle = System.Windows.Forms.TickStyle.None;
             this.CustomHeightSelector.Value = 9;
-            this.CustomHeightSelector.Scroll += new System.EventHandler(this.CustomHeightSelector_Scroll);
+            this.CustomHeightSelector.ValueChanged += new System.EventHandler(this.CustomHeightSelector_ValueChanged);
             // 
-            // CustomMinesSelector
+            // CustomWidthSelector
             // 
-            this.CustomMinesSelector.LargeChange = 1;
-            this.CustomMinesSelector.Location = new System.Drawing.Point(88, 124);
-            this.CustomMinesSelector.Minimum = 9;
-            this.CustomMinesSelector.Name = "CustomMinesSelector";
-            this.CustomMinesSelector.Size = new System.Drawing.Size(159, 45);
-            this.CustomMinesSelector.TabIndex = 6;
-            this.CustomMinesSelector.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.CustomMinesSelector.Value = 9;
-            this.CustomMinesSelector.Scroll += new System.EventHandler(this.CustomMinesSelector_Scroll);
+            this.CustomWidthSelector.LargeChange = 1;
+            this.CustomWidthSelector.Location = new System.Drawing.Point(88, 18);
+            this.CustomWidthSelector.Maximum = 30;
+            this.CustomWidthSelector.Minimum = 9;
+            this.CustomWidthSelector.Name = "CustomWidthSelector";
+            this.CustomWidthSelector.Size = new System.Drawing.Size(159, 45);
+            this.CustomWidthSelector.TabIndex = 4;
+            this.CustomWidthSelector.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomWidthSelector.Value = 9;
+            this.CustomWidthSelector.ValueChanged += new System.EventHandler(this.CustomWidthSelector_ValueChanged);
             // 
-            // SelectedCustomWidthLabel
+            // CustomMinesRangeLabel
             // 
-            this.SelectedCustomWidthLabel.AutoSize = true;
-            this.SelectedCustomWidthLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedCustomWidthLabel.Location = new System.Drawing.Point(240, 10);
-            this.SelectedCustomWidthLabel.Name = "SelectedCustomWidthLabel";
-            this.SelectedCustomWidthLabel.Size = new System.Drawing.Size(62, 37);
-            this.SelectedCustomWidthLabel.TabIndex = 7;
-            this.SelectedCustomWidthLabel.Text = "009";
+            this.CustomMinesRangeLabel.AutoSize = true;
+            this.CustomMinesRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomMinesRangeLabel.Location = new System.Drawing.Point(9, 148);
+            this.CustomMinesRangeLabel.Name = "CustomMinesRangeLabel";
+            this.CustomMinesRangeLabel.Size = new System.Drawing.Size(49, 21);
+            this.CustomMinesRangeLabel.TabIndex = 3;
+            this.CustomMinesRangeLabel.Text = "[9-xx]";
             // 
-            // SelectedCustomHeightLabel
+            // CustomHeightRangeLabel
             // 
-            this.SelectedCustomHeightLabel.AutoSize = true;
-            this.SelectedCustomHeightLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedCustomHeightLabel.Location = new System.Drawing.Point(240, 63);
-            this.SelectedCustomHeightLabel.Name = "SelectedCustomHeightLabel";
-            this.SelectedCustomHeightLabel.Size = new System.Drawing.Size(62, 37);
-            this.SelectedCustomHeightLabel.TabIndex = 7;
-            this.SelectedCustomHeightLabel.Text = "009";
+            this.CustomHeightRangeLabel.AutoSize = true;
+            this.CustomHeightRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomHeightRangeLabel.Location = new System.Drawing.Point(9, 95);
+            this.CustomHeightRangeLabel.Name = "CustomHeightRangeLabel";
+            this.CustomHeightRangeLabel.Size = new System.Drawing.Size(53, 21);
+            this.CustomHeightRangeLabel.TabIndex = 3;
+            this.CustomHeightRangeLabel.Text = "[9-24]";
             // 
-            // SelectedCustomMinesLabel
+            // CustomWidthRangeLabel
             // 
-            this.SelectedCustomMinesLabel.AutoSize = true;
-            this.SelectedCustomMinesLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedCustomMinesLabel.Location = new System.Drawing.Point(240, 116);
-            this.SelectedCustomMinesLabel.Name = "SelectedCustomMinesLabel";
-            this.SelectedCustomMinesLabel.Size = new System.Drawing.Size(62, 37);
-            this.SelectedCustomMinesLabel.TabIndex = 7;
-            this.SelectedCustomMinesLabel.Text = "009";
+            this.CustomWidthRangeLabel.AutoSize = true;
+            this.CustomWidthRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomWidthRangeLabel.Location = new System.Drawing.Point(9, 42);
+            this.CustomWidthRangeLabel.Name = "CustomWidthRangeLabel";
+            this.CustomWidthRangeLabel.Size = new System.Drawing.Size(53, 21);
+            this.CustomWidthRangeLabel.TabIndex = 3;
+            this.CustomWidthRangeLabel.Text = "[9-30]";
+            // 
+            // CustomMinesLabel
+            // 
+            this.CustomMinesLabel.AutoSize = true;
+            this.CustomMinesLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomMinesLabel.Location = new System.Drawing.Point(3, 116);
+            this.CustomMinesLabel.Name = "CustomMinesLabel";
+            this.CustomMinesLabel.Size = new System.Drawing.Size(80, 32);
+            this.CustomMinesLabel.TabIndex = 2;
+            this.CustomMinesLabel.Text = "Mines";
+            // 
+            // CustomHeightLabel
+            // 
+            this.CustomHeightLabel.AutoSize = true;
+            this.CustomHeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomHeightLabel.Location = new System.Drawing.Point(3, 63);
+            this.CustomHeightLabel.Name = "CustomHeightLabel";
+            this.CustomHeightLabel.Size = new System.Drawing.Size(87, 32);
+            this.CustomHeightLabel.TabIndex = 1;
+            this.CustomHeightLabel.Text = "Height";
+            // 
+            // CustomWidthLabel
+            // 
+            this.CustomWidthLabel.AutoSize = true;
+            this.CustomWidthLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomWidthLabel.Location = new System.Drawing.Point(3, 10);
+            this.CustomWidthLabel.Name = "CustomWidthLabel";
+            this.CustomWidthLabel.Size = new System.Drawing.Size(79, 32);
+            this.CustomWidthLabel.TabIndex = 0;
+            this.CustomWidthLabel.Text = "Width";
             // 
             // GameSettingsForm
             // 
@@ -324,11 +324,12 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "GameSettingsForm";
             this.Text = "GameSettingsForm";
+            this.Load += new System.EventHandler(this.GameSettingsForm_Load);
             this.CustomDifficultyGroup.ResumeLayout(false);
             this.CustomDifficultyGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomMinesSelector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
