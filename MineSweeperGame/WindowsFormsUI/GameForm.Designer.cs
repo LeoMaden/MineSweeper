@@ -41,6 +41,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "GameForm";
             this.Text = "GameForm";
+            this.Load += new System.EventHandler(this.GameForm_Load);
             this.ResumeLayout(false);
 
         }
