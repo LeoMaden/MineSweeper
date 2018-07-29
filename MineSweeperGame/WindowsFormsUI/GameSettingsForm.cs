@@ -30,5 +30,29 @@ namespace WindowsFormsUI
                 CustomDifficultyGroup.Enabled = false;
             }
         }
+
+        private void CustomWidthSelector_Scroll(object sender, EventArgs e)
+        {
+            // Update value in label for width scroll bar.
+            int selectedWidth = CustomWidthSelector.Value;
+            // Pad width with leading zeros before setting label text.
+            SelectedCustomWidthLabel.Text = selectedWidth.ToString("000");
+        }
+
+        private void CustomHeightSelector_Scroll(object sender, EventArgs e)
+        {
+            // Update value in label for height scroll bar.
+            int selectedHeight = CustomHeightSelector.Value;
+            // Pad height with leading zeros before setting label text.
+            SelectedCustomHeightLabel.Text = selectedHeight.ToString("000");
+        }
+
+        private void CustomMinesSelector_Scroll(object sender, EventArgs e)
+        {
+            // Update value in label for mines scroll bar.
+            int selectedMines = CustomMinesSelector.Value;
+            // Pad mines with leading zeros before setting label text.
+            SelectedCustomMinesLabel.Text = selectedMines.ToString("000");
+        }
     }
 }

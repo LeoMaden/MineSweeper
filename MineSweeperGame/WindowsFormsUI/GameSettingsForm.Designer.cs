@@ -43,9 +43,16 @@
             this.CustomWidthRangeLabel = new System.Windows.Forms.Label();
             this.CustomHeightRangeLabel = new System.Windows.Forms.Label();
             this.CustomMinesRangeLabel = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.CustomWidthSelector = new System.Windows.Forms.TrackBar();
+            this.CustomHeightSelector = new System.Windows.Forms.TrackBar();
+            this.CustomMinesSelector = new System.Windows.Forms.TrackBar();
+            this.SelectedCustomWidthLabel = new System.Windows.Forms.Label();
+            this.SelectedCustomHeightLabel = new System.Windows.Forms.Label();
+            this.SelectedCustomMinesLabel = new System.Windows.Forms.Label();
             this.CustomDifficultyGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomMinesSelector)).BeginInit();
             this.SuspendLayout();
             // 
             // StartNewGameButton
@@ -150,7 +157,12 @@
             // 
             this.CustomDifficultyGroup.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.CustomDifficultyGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CustomDifficultyGroup.Controls.Add(this.trackBar1);
+            this.CustomDifficultyGroup.Controls.Add(this.SelectedCustomMinesLabel);
+            this.CustomDifficultyGroup.Controls.Add(this.SelectedCustomHeightLabel);
+            this.CustomDifficultyGroup.Controls.Add(this.SelectedCustomWidthLabel);
+            this.CustomDifficultyGroup.Controls.Add(this.CustomMinesSelector);
+            this.CustomDifficultyGroup.Controls.Add(this.CustomHeightSelector);
+            this.CustomDifficultyGroup.Controls.Add(this.CustomWidthSelector);
             this.CustomDifficultyGroup.Controls.Add(this.CustomMinesRangeLabel);
             this.CustomDifficultyGroup.Controls.Add(this.CustomHeightRangeLabel);
             this.CustomDifficultyGroup.Controls.Add(this.CustomWidthRangeLabel);
@@ -199,9 +211,9 @@
             this.CustomWidthRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomWidthRangeLabel.Location = new System.Drawing.Point(9, 42);
             this.CustomWidthRangeLabel.Name = "CustomWidthRangeLabel";
-            this.CustomWidthRangeLabel.Size = new System.Drawing.Size(49, 21);
+            this.CustomWidthRangeLabel.Size = new System.Drawing.Size(53, 21);
             this.CustomWidthRangeLabel.TabIndex = 3;
-            this.CustomWidthRangeLabel.Text = "[9-xx]";
+            this.CustomWidthRangeLabel.Text = "[9-30]";
             // 
             // CustomHeightRangeLabel
             // 
@@ -209,9 +221,9 @@
             this.CustomHeightRangeLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomHeightRangeLabel.Location = new System.Drawing.Point(9, 95);
             this.CustomHeightRangeLabel.Name = "CustomHeightRangeLabel";
-            this.CustomHeightRangeLabel.Size = new System.Drawing.Size(49, 21);
+            this.CustomHeightRangeLabel.Size = new System.Drawing.Size(53, 21);
             this.CustomHeightRangeLabel.TabIndex = 3;
-            this.CustomHeightRangeLabel.Text = "[9-xx]";
+            this.CustomHeightRangeLabel.Text = "[9-24]";
             // 
             // CustomMinesRangeLabel
             // 
@@ -223,14 +235,73 @@
             this.CustomMinesRangeLabel.TabIndex = 3;
             this.CustomMinesRangeLabel.Text = "[9-xx]";
             // 
-            // trackBar1
+            // CustomWidthSelector
             // 
-            this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(88, 24);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(159, 45);
-            this.trackBar1.TabIndex = 4;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomWidthSelector.LargeChange = 1;
+            this.CustomWidthSelector.Location = new System.Drawing.Point(88, 18);
+            this.CustomWidthSelector.Maximum = 30;
+            this.CustomWidthSelector.Minimum = 9;
+            this.CustomWidthSelector.Name = "CustomWidthSelector";
+            this.CustomWidthSelector.Size = new System.Drawing.Size(159, 45);
+            this.CustomWidthSelector.TabIndex = 4;
+            this.CustomWidthSelector.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomWidthSelector.Value = 9;
+            this.CustomWidthSelector.Scroll += new System.EventHandler(this.CustomWidthSelector_Scroll);
+            // 
+            // CustomHeightSelector
+            // 
+            this.CustomHeightSelector.LargeChange = 1;
+            this.CustomHeightSelector.Location = new System.Drawing.Point(88, 71);
+            this.CustomHeightSelector.Maximum = 24;
+            this.CustomHeightSelector.Minimum = 9;
+            this.CustomHeightSelector.Name = "CustomHeightSelector";
+            this.CustomHeightSelector.Size = new System.Drawing.Size(159, 45);
+            this.CustomHeightSelector.TabIndex = 5;
+            this.CustomHeightSelector.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomHeightSelector.Value = 9;
+            this.CustomHeightSelector.Scroll += new System.EventHandler(this.CustomHeightSelector_Scroll);
+            // 
+            // CustomMinesSelector
+            // 
+            this.CustomMinesSelector.LargeChange = 1;
+            this.CustomMinesSelector.Location = new System.Drawing.Point(88, 124);
+            this.CustomMinesSelector.Minimum = 9;
+            this.CustomMinesSelector.Name = "CustomMinesSelector";
+            this.CustomMinesSelector.Size = new System.Drawing.Size(159, 45);
+            this.CustomMinesSelector.TabIndex = 6;
+            this.CustomMinesSelector.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CustomMinesSelector.Value = 9;
+            this.CustomMinesSelector.Scroll += new System.EventHandler(this.CustomMinesSelector_Scroll);
+            // 
+            // SelectedCustomWidthLabel
+            // 
+            this.SelectedCustomWidthLabel.AutoSize = true;
+            this.SelectedCustomWidthLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomWidthLabel.Location = new System.Drawing.Point(240, 10);
+            this.SelectedCustomWidthLabel.Name = "SelectedCustomWidthLabel";
+            this.SelectedCustomWidthLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomWidthLabel.TabIndex = 7;
+            this.SelectedCustomWidthLabel.Text = "009";
+            // 
+            // SelectedCustomHeightLabel
+            // 
+            this.SelectedCustomHeightLabel.AutoSize = true;
+            this.SelectedCustomHeightLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomHeightLabel.Location = new System.Drawing.Point(240, 63);
+            this.SelectedCustomHeightLabel.Name = "SelectedCustomHeightLabel";
+            this.SelectedCustomHeightLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomHeightLabel.TabIndex = 7;
+            this.SelectedCustomHeightLabel.Text = "009";
+            // 
+            // SelectedCustomMinesLabel
+            // 
+            this.SelectedCustomMinesLabel.AutoSize = true;
+            this.SelectedCustomMinesLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedCustomMinesLabel.Location = new System.Drawing.Point(240, 116);
+            this.SelectedCustomMinesLabel.Name = "SelectedCustomMinesLabel";
+            this.SelectedCustomMinesLabel.Size = new System.Drawing.Size(62, 37);
+            this.SelectedCustomMinesLabel.TabIndex = 7;
+            this.SelectedCustomMinesLabel.Text = "009";
             // 
             // GameSettingsForm
             // 
@@ -255,7 +326,9 @@
             this.Text = "GameSettingsForm";
             this.CustomDifficultyGroup.ResumeLayout(false);
             this.CustomDifficultyGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomWidthSelector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomHeightSelector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomMinesSelector)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,12 +345,17 @@
         private System.Windows.Forms.Label HardDifficultyLabel;
         private System.Windows.Forms.RadioButton CustomDifficultyRadio;
         private System.Windows.Forms.Panel CustomDifficultyGroup;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar CustomWidthSelector;
         private System.Windows.Forms.Label CustomMinesRangeLabel;
         private System.Windows.Forms.Label CustomHeightRangeLabel;
         private System.Windows.Forms.Label CustomWidthRangeLabel;
         private System.Windows.Forms.Label CustomMinesLabel;
         private System.Windows.Forms.Label CustomHeightLabel;
         private System.Windows.Forms.Label CustomWidthLabel;
+        private System.Windows.Forms.TrackBar CustomMinesSelector;
+        private System.Windows.Forms.TrackBar CustomHeightSelector;
+        private System.Windows.Forms.Label SelectedCustomMinesLabel;
+        private System.Windows.Forms.Label SelectedCustomHeightLabel;
+        private System.Windows.Forms.Label SelectedCustomWidthLabel;
     }
 }
