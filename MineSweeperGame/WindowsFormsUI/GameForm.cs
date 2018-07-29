@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameLibrary;
 
 namespace WindowsFormsUI
 {
     public partial class GameForm : Form
     {
+        private MineGrid MineGrid;
+
         private int GridWidth;
         private int GridHeight;
         private int GridMines;
@@ -26,6 +29,9 @@ namespace WindowsFormsUI
             GridWidth = gridWidth;
             GridHeight = gridHeight;
             GridMines = gridMines;
+
+            // Initialise MineGrid.
+            MineGrid = new MineGrid(GridWidth, GridHeight, GridMines);
 
             InitializeComponent();
         }
@@ -42,7 +48,7 @@ namespace WindowsFormsUI
         {
             // Calculate dimensions of grid panel container.
             int gridPanelWidth = CellWidth * GridWidth;
-            int gridPanelHeight = CellHeight * CellHeight;
+            int gridPanelHeight = CellHeight * GridHeight;
 
             // Create grid panel container.
             Panel gridPanel = new Panel();
@@ -56,6 +62,31 @@ namespace WindowsFormsUI
             gridPanel.BorderStyle = BorderStyle.FixedSingle;
 
             Controls.Add(gridPanel);
+            
+
+            for (int x = 0; x < GridWidth; x++)
+            {
+                for (int y = 0; y < GridHeight; y++)
+                {
+                    Label label = new Label();
+
+                    label.BackColor = SystemColors.ControlDark;
+                    label.BorderStyle = BorderStyle.FixedSingle;
+                    label.FlatStyle = FlatStyle.Flat;
+                    label.Location = new Point(x * CellWidth, y * CellHeight);
+                    label.Margin = new Padding(0);
+                    label.Name = $"gridCell{ x }{ y }";
+                    label.Padding = new Padding(2);
+                    label.Size = new Size(CellWidth, CellHeight);
+                    label.TabIndex = 0;
+                    label.TextAlign = ContentAlignment.MiddleCenter;
+                    label.Font = new Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                    label.Text = MineGrid.GameGrid[x, y].ToString();
+
+                    gridPanel.Controls.Add(label);
+                }
+            }
         }
     }
 }

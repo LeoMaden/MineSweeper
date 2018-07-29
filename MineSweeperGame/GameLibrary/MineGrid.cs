@@ -8,7 +8,7 @@ namespace GameLibrary
 {
     public class MineGrid
     {
-        private int[,] GameGrid { get; set; }
+        public int[,] GameGrid { get; set; }
 
         public int Width => GameGrid.GetLength(0);
 
