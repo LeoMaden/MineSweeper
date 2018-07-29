@@ -36,6 +36,7 @@ namespace WindowsFormsUI
             // Set usable area to full size of form.
             this.ClientSize = this.Size;
 
+            InitialiseGridPanel();
             DrawBehindGrid();
             DrawFrontGrid();
         }
@@ -70,6 +71,8 @@ namespace WindowsFormsUI
                     int x = gridCoords.Item1;
                     int y = gridCoords.Item2;
 
+                    MessageBox.Show($"{ x }, { y }");
+
                     break;
                 case MouseButtons.None:
                     break;
@@ -95,9 +98,6 @@ namespace WindowsFormsUI
                 default:
                     break;
             }
-
-
-
         }
 
         private void InitialiseGridPanel()
@@ -175,18 +175,27 @@ namespace WindowsFormsUI
                     button.Location = new Point(x * CellWidth, y * CellHeight);
                     button.Margin = new Padding(0);
                     button.Name = $"gridButton{ x }{ y }";
-                    button.Padding = new Padding(2);
+                    button.Padding = new Padding(0);
                     button.Size = new Size(CellWidth, CellHeight);
                     button.TabIndex = 0;
                     button.TextAlign = ContentAlignment.MiddleCenter;
                     button.Click += GameForm_CellButtonClicked;
                     button.Tag = Tuple.Create(x, y);
-                    button.Text = "y";
-                    button.Font = new Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    button.Text = "";
+                    button.Font = new Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
                     GridPanel.Controls.Add(button);
                 }
             }
+
+            foreach (Control c in GridPanel.Controls)
+	        {
+                if (c is Button button)
+                {
+                    button.BringToFront();
+                }
+	        }
         }
+
     }
 }
