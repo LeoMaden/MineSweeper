@@ -22,6 +22,23 @@ namespace WindowsFormsUI
         private int CellWidth = 20;
         private int CellHeight = 20;
 
+        private event EventHandler CellButtonClicked;
+
+        private Panel GridPanel = new Panel();
+        private int GridPanelWidth;
+        private int GridPanelHeight;
+
+        private Button[,] FrontButtonGrid;
+        
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            // Set usable area to full size of form.
+            this.ClientSize = this.Size;
+
+            DrawBehindGrid();
+            DrawFrontGrid();
+        }
 
         public GameForm(int gridWidth, int gridHeight, int gridMines)
         {
@@ -33,37 +50,77 @@ namespace WindowsFormsUI
             // Initialise MineGrid.
             MineGrid = new MineGrid(GridWidth, GridHeight, GridMines);
 
+            // Add event handler to cell button clicked event.
+            CellButtonClicked += GameForm_CellButtonClicked;
+            
+
             InitializeComponent();
         }
 
-        private void GameForm_Load(object sender, EventArgs e)
+        private void GameForm_CellButtonClicked(object sender, EventArgs e)
         {
-            // Set usable area to full size of form.
-            this.ClientSize = this.Size;
+            MouseEventArgs mouseEvent = (MouseEventArgs)e;
+            Button buttonClicked = (Button)sender;
 
-            DrawBehindGrid();
+            switch (mouseEvent.Button)
+            {
+                case MouseButtons.Left:
+                    Tuple<int, int> gridCoords = (Tuple<int, int>)buttonClicked.Tag;
+
+                    int x = gridCoords.Item1;
+                    int y = gridCoords.Item2;
+
+                    break;
+                case MouseButtons.None:
+                    break;
+                // Right click to flag cell.
+                case MouseButtons.Right:
+                    if (buttonClicked.Text == "")
+                    {
+                        // TODO - Flag image.
+                        buttonClicked.Text = "F";
+                    }
+                    else
+                    {
+                        buttonClicked.Text = "";
+                    }
+
+                    break;
+                case MouseButtons.Middle:
+                    break;
+                case MouseButtons.XButton1:
+                    break;
+                case MouseButtons.XButton2:
+                    break;
+                default:
+                    break;
+            }
+
+
+
+        }
+
+        private void InitialiseGridPanel()
+        {
+            // Calculate dimensions of grid panel container.
+            GridPanelWidth = CellWidth * GridWidth;
+            GridPanelHeight = CellHeight * GridHeight;
+
+            // Set properties of GridPanel.
+            GridPanel.Size = new Size(GridPanelWidth, GridPanelHeight);
+
+            GridPanel.Left = (this.Width - GridPanelWidth) / 2;
+            GridPanel.Top = 120;
+            GridPanel.Padding = new Padding(0);
+            GridPanel.Margin = new Padding(0);
+            GridPanel.BorderStyle = BorderStyle.FixedSingle;
+
+            Controls.Add(GridPanel);
         }
 
         private void DrawBehindGrid()
         {
-            // Calculate dimensions of grid panel container.
-            int gridPanelWidth = CellWidth * GridWidth;
-            int gridPanelHeight = CellHeight * GridHeight;
-
-            // Create grid panel container.
-            Panel gridPanel = new Panel();
-
-            gridPanel.Size = new Size(gridPanelWidth, gridPanelHeight);
-
-            gridPanel.Left = (this.Width - gridPanelWidth) / 2;
-            gridPanel.Top = 120;
-            gridPanel.Padding = new Padding(0);
-            gridPanel.Margin = new Padding(0);
-            gridPanel.BorderStyle = BorderStyle.FixedSingle;
-
-            Controls.Add(gridPanel);
-            
-
+            // Loop through each cell in grid.
             for (int x = 0; x < GridWidth; x++)
             {
                 for (int y = 0; y < GridHeight; y++)
@@ -100,7 +157,34 @@ namespace WindowsFormsUI
                             break;
                     }
 
-                    gridPanel.Controls.Add(label);
+                    GridPanel.Controls.Add(label);
+                }
+            }
+        }
+
+        private void DrawFrontGrid()
+        {
+            for (int x = 0; x < GridWidth; x++)
+            {
+                for (int y = 0; y < GridHeight; y++)
+                {
+                    Button button = new Button();
+
+                    button.BackColor = SystemColors.ControlDark;
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.Location = new Point(x * CellWidth, y * CellHeight);
+                    button.Margin = new Padding(0);
+                    button.Name = $"gridButton{ x }{ y }";
+                    button.Padding = new Padding(2);
+                    button.Size = new Size(CellWidth, CellHeight);
+                    button.TabIndex = 0;
+                    button.TextAlign = ContentAlignment.MiddleCenter;
+                    button.Click += GameForm_CellButtonClicked;
+                    button.Tag = Tuple.Create(x, y);
+                    button.Text = "y";
+                    button.Font = new Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                    GridPanel.Controls.Add(button);
                 }
             }
         }
