@@ -16,5 +16,14 @@ namespace WindowsFormsUI
         {
             InitializeComponent();
         }
+
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            GameSettingsForm newGameSettings = new GameSettingsForm();
+
+            this.Hide();
+            newGameSettings.ShowDialog(this);
+            this.DestroyHandle();
+        }
     }
 }
