@@ -66,6 +66,12 @@ namespace WindowsFormsUI
             switch (mouseEvent.Button)
             {
                 case MouseButtons.Left:
+                    // If button has been flagged do not allow left click.
+                    if (buttonClicked.Text == "F")
+                    {
+                        break;
+                    }
+
                     switch (ValueOfGridUnderButton(buttonClicked))
                     {
                         // There are no bombs surrounding button clicked.
@@ -74,6 +80,7 @@ namespace WindowsFormsUI
                             break;
                         // Bomb on clicked location.
                         case -1:
+                            buttonClicked.Hide();
                             MessageBox.Show("You lost");
                             break;
                         // Otherwise.
@@ -218,7 +225,7 @@ namespace WindowsFormsUI
                     button.Size = new Size(CellWidth, CellHeight);
                     button.TabIndex = 0;
                     button.TextAlign = ContentAlignment.MiddleCenter;
-                    button.Click += GameForm_CellButtonClicked;
+                    button.MouseDown += GameForm_CellButtonClicked;
                     button.Tag = Tuple.Create(x, y);
                     button.Text = "";
                     button.Font = new Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
