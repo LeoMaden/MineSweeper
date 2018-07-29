@@ -132,7 +132,12 @@ namespace WindowsFormsUI
         {
             // MessageBox.Show($"Width: { SelectedWidth }\nHeight: { SelectedHeight }\nMines: { SelectedMines }");
 
+            GameForm newGame = new GameForm(SelectedWidth, SelectedHeight, SelectedMines);
+            //newGame.ParentForm = this;
 
+            this.Hide();
+            newGame.ShowDialog(this);
+            this.Show();
         }
 
         #region Preset difficulty buttons Click events

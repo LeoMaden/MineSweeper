@@ -16,7 +16,7 @@ namespace WindowsFormsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm(16,16,40));
+            Application.Run(new GameSettingsForm());
         }
     }
 }

@@ -22,13 +22,9 @@ namespace WindowsFormsUI
         private int CellWidth = 20;
         private int CellHeight = 20;
 
-        private event EventHandler CellButtonClicked;
-
         private Panel GridPanel = new Panel();
         private int GridPanelWidth;
         private int GridPanelHeight;
-
-        private Button[,] FrontButtonGrid;
         
 
         private void GameForm_Load(object sender, EventArgs e)
@@ -50,9 +46,6 @@ namespace WindowsFormsUI
 
             // Initialise MineGrid.
             MineGrid = new MineGrid(GridWidth, GridHeight, GridMines);
-
-            // Add event handler to cell button clicked event.
-            CellButtonClicked += GameForm_CellButtonClicked;
             
 
             InitializeComponent();
