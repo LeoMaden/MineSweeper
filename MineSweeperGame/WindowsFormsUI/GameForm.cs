@@ -91,17 +91,17 @@ namespace WindowsFormsUI
 
         private void CellRightClick(Button buttonClicked)
         {
-            if (buttonClicked.Text == "" && FlagsRemaining > 0)
+            if (buttonClicked.Image == null && FlagsRemaining > 0)
             {
-                // TODO - Flag image.
-                buttonClicked.Text = "F";
+                Image img = Resources.FlagImage;
+                buttonClicked.Image = new Bitmap(img, new Size(CellWidth, CellHeight));
 
                 FlagsRemaining--;
                 UpdateFlagsRemainingLabel();
             }
-            else if (buttonClicked.Text == "F")
+            else if (buttonClicked.Image != null)
             {
-                buttonClicked.Text = "";
+                buttonClicked.Image = null;
 
                 FlagsRemaining++;
                 UpdateFlagsRemainingLabel();
