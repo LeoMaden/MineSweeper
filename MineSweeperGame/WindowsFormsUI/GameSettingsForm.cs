@@ -17,7 +17,7 @@ namespace WindowsFormsUI
         private int SelectedMines;
 
         private const int MaxGridWidth = 25;
-        private const int MaxGridHeight = 20;
+        private const int MaxGridHeight = 15;
 
         public GameSettingsForm()
         {
