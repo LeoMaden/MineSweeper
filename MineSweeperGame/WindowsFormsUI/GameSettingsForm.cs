@@ -16,6 +16,9 @@ namespace WindowsFormsUI
         private int SelectedHeight;
         private int SelectedMines;
 
+        private const int MaxGridWidth = 25;
+        private const int MaxGridHeight = 20;
+
         public GameSettingsForm()
         {
             InitializeComponent();
@@ -23,9 +26,17 @@ namespace WindowsFormsUI
 
         private void GameSettingsForm_Load(object sender, EventArgs e)
         {
+            // Set default custom values.
             CustomWidthSelector.Value = 15;
             CustomHeightSelector.Value = 10;
             CustomMinesSelector.Value = 30;
+
+            // Set maximum grid size allowed in custom.
+            CustomWidthSelector.Maximum = MaxGridWidth;
+            CustomWidthRangeLabel.Text = $"[9 - { MaxGridWidth }]";
+
+            CustomHeightSelector.Maximum = MaxGridHeight;
+            CustomHeightRangeLabel.Text = $"[9 - { MaxGridHeight }]";
 
             UpdateCustomMineValues();
         }
