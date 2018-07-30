@@ -19,12 +19,14 @@ namespace WindowsFormsUI
         private int GridHeight;
         private int GridMines;
 
-        private int CellWidth = 20;
-        private int CellHeight = 20;
+        private int CellWidth = 30;
+        private int CellHeight = 30;
 
         private Panel GridPanel = new Panel();
         private int GridPanelWidth;
         private int GridPanelHeight;
+
+        private int CellsUncovered = 0;
 
         private void GameForm_Load(object sender, EventArgs e)
         {
@@ -70,7 +72,7 @@ namespace WindowsFormsUI
                     {
                         // There are no bombs surrounding button clicked.
                         case 0:
-                            ButtonNoBombsAroundLeftClicked(buttonClicked);
+                            EmptyCellLeftClick(buttonClicked);
                             break;
                         // Bomb on clicked location.
                         case -1:
@@ -81,8 +83,13 @@ namespace WindowsFormsUI
                         // Otherwise.
                         default:
                             buttonClicked.Hide();
+
+                            // Update number of cells uncovered.
+                            CellsUncovered++;
                             break;  
                     }
+
+                    CheckForWin();
 
                     break;
 
@@ -102,10 +109,23 @@ namespace WindowsFormsUI
             }
         }
 
-        private void ButtonNoBombsAroundLeftClicked(Button buttonClicked)
+        private void CheckForWin()
+        {
+            // If all cells have been uncovered and no bombs hit.
+            if (CellsUncovered == ((GridWidth * GridHeight) - GridMines))
+            {
+                MessageBox.Show("You WIN!");
+                this.DestroyHandle();
+            }
+        }
+
+        private void EmptyCellLeftClick(Button buttonClicked)
         {
             // Hide button from view to expose behind grid.
             buttonClicked.Hide();
+
+            // Update number of cells uncovered.
+            CellsUncovered++;
 
             // Coords of button which was clicked.
             Tuple<int, int> gridCoords = (Tuple<int, int>)buttonClicked.Tag;
@@ -126,12 +146,17 @@ namespace WindowsFormsUI
                 if (button.Visible == true)
                 {
                     button.Hide();
-
+                    
                     // No bombs around button, recursively click it.
                     if (ValueOfGridUnderButton(button) == 0)
                     {
-                        ButtonNoBombsAroundLeftClicked(button);
-                    } 
+                        EmptyCellLeftClick(button);
+                    }
+                    else
+                    {
+                        // Update number of cells uncovered.
+                        CellsUncovered++;
+                    }
                 }
             }
         }

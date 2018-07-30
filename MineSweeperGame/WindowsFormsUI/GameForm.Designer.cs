@@ -34,7 +34,7 @@
             // FlagsRemainingLabel
             // 
             this.FlagsRemainingLabel.AutoSize = true;
-            this.FlagsRemainingLabel.Location = new System.Drawing.Point(92, 9);
+            this.FlagsRemainingLabel.Location = new System.Drawing.Point(352, 29);
             this.FlagsRemainingLabel.Name = "FlagsRemainingLabel";
             this.FlagsRemainingLabel.Size = new System.Drawing.Size(65, 45);
             this.FlagsRemainingLabel.TabIndex = 0;
