@@ -29,6 +29,18 @@ namespace WindowsFormsUI
         private int CellsUncovered = 0;
         private int FlagsRemaining;
 
+        private int[] BombMarkerColours = new int[8]
+        {
+            0x0B4CEC, // 1 bomb: Dark blue
+            0x0BA8EC, // 2 bombs: Light blue
+            0x1AD636, // 3 bombs: Light green
+            0xF0B50A, // 4 bombs: Orange
+            0xF96E09, // 5 bombs: Deep orange
+            0xFC1B0C, // 6 bombs: Light red
+            0xAE0B00, // 7 bombs: Deep red
+            0xF518D3  // 8 bombs: Deep pink
+        };
+
         private void GameForm_Load(object sender, EventArgs e)
         {
             // Set usable area to full size of form.
@@ -217,20 +229,22 @@ namespace WindowsFormsUI
             {
                 for (int y = 0; y < GridHeight; y++)
                 {
-                    Label label = new Label();
+                    Label label = new Label
+                    {
+                        BackColor = Color.White,
+                        ForeColor = Color.Black,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        FlatStyle = FlatStyle.Flat,
+                        Location = new Point(x * CellWidth, y * CellHeight),
+                        Margin = new Padding(0),
+                        Name = $"gridCell{ x }{ y }",
+                        Padding = new Padding(2),
+                        Size = new Size(CellWidth, CellHeight),
+                        TabIndex = 0,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Font = new Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)))
+                    };
 
-                    label.BackColor = SystemColors.ControlDark;
-                    label.BorderStyle = BorderStyle.FixedSingle;
-                    label.FlatStyle = FlatStyle.Flat;
-                    label.Location = new Point(x * CellWidth, y * CellHeight);
-                    label.Margin = new Padding(0);
-                    label.Name = $"gridCell{ x }{ y }";
-                    label.Padding = new Padding(2);
-                    label.Size = new Size(CellWidth, CellHeight);
-                    label.TabIndex = 0;
-                    label.TextAlign = ContentAlignment.MiddleCenter;
-                    label.Font = new Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    
                     // Decide what to populate text of cell with.
                     switch (MineGrid.GameGrid[x, y])
                     {
@@ -245,7 +259,9 @@ namespace WindowsFormsUI
                             break;
 
                         default:
-                            label.Text = MineGrid.GameGrid[x, y].ToString();
+                            int value = MineGrid.GameGrid[x, y];
+                            label.Text = value.ToString();
+                            label.ForeColor = Color.FromArgb(BombMarkerColours[value - 1]);
                             break;
                     }
 
