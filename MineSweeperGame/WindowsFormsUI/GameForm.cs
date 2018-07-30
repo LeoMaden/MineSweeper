@@ -67,57 +67,65 @@ namespace WindowsFormsUI
             {
                 // Left click to expose cell.
                 case MouseButtons.Left:
-                    // If button has been flagged do not allow left click.
-                    if (buttonClicked.Text == "F")
-                    {
-                        break;
-                    }
-
-                    switch (ValueOfGridUnderButton(buttonClicked))
-                    {
-                        // There are no bombs surrounding button clicked.
-                        case 0:
-                            EmptyCellLeftClick(buttonClicked);
-                            break;
-                        // Bomb on clicked location.
-                        case -1:
-                            buttonClicked.Hide();
-                            MessageBox.Show("You lost");
-                            this.DestroyHandle();
-                            break;
-                        // Otherwise.
-                        default:
-                            buttonClicked.Hide();
-
-                            // Update number of cells uncovered.
-                            CellsUncovered++;
-                            break;  
-                    }
-
-                    CheckForWin();
-
+                    CellLeftClick(buttonClicked);
                     break;
 
                 // Right click to flag/unflag cell.
                 case MouseButtons.Right:
-                    if (buttonClicked.Text == "" && FlagsRemaining > 0)
-                    {
-                        // TODO - Flag image.
-                        buttonClicked.Text = "F";
-
-                        FlagsRemaining--;
-                        UpdateFlagsRemainingLabel();
-                    }
-                    else if(buttonClicked.Text == "F")
-                    {
-                        buttonClicked.Text = "";
-
-                        FlagsRemaining++;
-                        UpdateFlagsRemainingLabel();
-                    }
-
+                    CellRightClick(buttonClicked);
                     break;
             }
+        }
+
+        private void CellRightClick(Button buttonClicked)
+        {
+            if (buttonClicked.Text == "" && FlagsRemaining > 0)
+            {
+                // TODO - Flag image.
+                buttonClicked.Text = "F";
+
+                FlagsRemaining--;
+                UpdateFlagsRemainingLabel();
+            }
+            else if (buttonClicked.Text == "F")
+            {
+                buttonClicked.Text = "";
+
+                FlagsRemaining++;
+                UpdateFlagsRemainingLabel();
+            }
+        }
+
+        private void CellLeftClick(Button buttonClicked)
+        {
+            // If button has been flagged do not allow left click.
+            if (buttonClicked.Text == "F")
+            {
+                return;
+            }
+
+            switch (ValueOfGridUnderButton(buttonClicked))
+            {
+                // There are no bombs surrounding button clicked.
+                case 0:
+                    EmptyCellLeftClick(buttonClicked);
+                    break;
+                // Bomb on clicked location.
+                case -1:
+                    buttonClicked.Hide();
+                    MessageBox.Show("You lost");
+                    this.DestroyHandle();
+                    break;
+                // Otherwise.
+                default:
+                    buttonClicked.Hide();
+
+                    // Update number of cells uncovered.
+                    CellsUncovered++;
+                    break;
+            }
+
+            CheckForWin();
         }
 
         private void UpdateFlagsRemainingLabel()
