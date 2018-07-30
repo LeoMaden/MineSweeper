@@ -19,8 +19,8 @@ namespace WindowsFormsUI
         private int GridHeight;
         private int GridMines;
 
-        private int CellWidth = 30;
-        private int CellHeight = 30;
+        private const int CellWidth = 30;
+        private const int CellHeight = 30;
 
         private Panel GridPanel = new Panel();
         private int GridPanelWidth;
