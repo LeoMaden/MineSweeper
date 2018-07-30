@@ -91,16 +91,22 @@ namespace WindowsFormsUI
 
         private void CellRightClick(Button buttonClicked)
         {
-            if (buttonClicked.Image == null && FlagsRemaining > 0)
+            // If there is no image and there are flags remaining.
+            if ((buttonClicked.Image == null) && (FlagsRemaining > 0))
             {
+                // Get flag image from resources.
                 Image img = Resources.FlagImage;
+
+                // Set image of button to FlagImage but resized to correct size.
                 buttonClicked.Image = new Bitmap(img, new Size(CellWidth, CellHeight));
 
                 FlagsRemaining--;
                 UpdateFlagsRemainingLabel();
             }
+            // If there is an image in the button.
             else if (buttonClicked.Image != null)
             {
+                // Remove image.
                 buttonClicked.Image = null;
 
                 FlagsRemaining++;
@@ -249,8 +255,10 @@ namespace WindowsFormsUI
                     switch (MineGrid.GameGrid[x, y])
                     {
                         case -1:
-                            // label.Text = "B";
+                            // Get the BombImage resource.
                             Image img = Resources.bombImage;
+
+                            // Resize bomb image to correct size and set it to label's background.
                             label.Image = new Bitmap(img, new Size(CellWidth, CellHeight));
                             break;
 
