@@ -117,7 +117,7 @@ namespace WindowsFormsUI
         private void CellLeftClick(Button buttonClicked)
         {
             // If button has been flagged do not allow left click.
-            if (buttonClicked.Text == "F")
+            if (buttonClicked.Image != null)
             {
                 return;
             }
