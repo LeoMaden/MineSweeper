@@ -25,7 +25,6 @@ namespace WindowsFormsUI
         private Panel GridPanel = new Panel();
         private int GridPanelWidth;
         private int GridPanelHeight;
-        
 
         private void GameForm_Load(object sender, EventArgs e)
         {
@@ -77,6 +76,7 @@ namespace WindowsFormsUI
                         case -1:
                             buttonClicked.Hide();
                             MessageBox.Show("You lost");
+                            this.DestroyHandle();
                             break;
                         // Otherwise.
                         default:

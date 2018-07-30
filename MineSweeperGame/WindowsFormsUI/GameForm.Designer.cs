@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.FlagsRemainingLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // FlagsRemainingLabel
+            // 
+            this.FlagsRemainingLabel.AutoSize = true;
+            this.FlagsRemainingLabel.Location = new System.Drawing.Point(92, 9);
+            this.FlagsRemainingLabel.Name = "FlagsRemainingLabel";
+            this.FlagsRemainingLabel.Size = new System.Drawing.Size(65, 45);
+            this.FlagsRemainingLabel.TabIndex = 0;
+            this.FlagsRemainingLabel.Text = "xxx";
             // 
             // GameForm
             // 
@@ -36,16 +46,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.FlagsRemainingLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.GameForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label FlagsRemainingLabel;
     }
 }
