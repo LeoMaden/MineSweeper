@@ -27,6 +27,7 @@ namespace WindowsFormsUI
         private int GridPanelHeight;
 
         private int CellsUncovered = 0;
+        private int FlagsRemaining;
 
         private void GameForm_Load(object sender, EventArgs e)
         {
@@ -36,6 +37,10 @@ namespace WindowsFormsUI
             InitialiseGridPanel();
             DrawBehindGrid();
             DrawFrontGrid();
+
+            // Set number of flags left to number of bombs on grid.
+            FlagsRemaining = GridMines;
+            UpdateFlagsRemainingLabel();
         }
 
         public GameForm(int gridWidth, int gridHeight, int gridMines)
@@ -95,18 +100,29 @@ namespace WindowsFormsUI
 
                 // Right click to flag/unflag cell.
                 case MouseButtons.Right:
-                    if (buttonClicked.Text == "")
+                    if (buttonClicked.Text == "" && FlagsRemaining > 0)
                     {
                         // TODO - Flag image.
                         buttonClicked.Text = "F";
+
+                        FlagsRemaining--;
+                        UpdateFlagsRemainingLabel();
                     }
-                    else
+                    else if(buttonClicked.Text == "F")
                     {
                         buttonClicked.Text = "";
+
+                        FlagsRemaining++;
+                        UpdateFlagsRemainingLabel();
                     }
 
                     break;
             }
+        }
+
+        private void UpdateFlagsRemainingLabel()
+        {
+            FlagsRemainingLabel.Text = FlagsRemaining.ToString("000");
         }
 
         private void CheckForWin()
