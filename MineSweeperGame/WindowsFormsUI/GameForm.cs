@@ -249,8 +249,9 @@ namespace WindowsFormsUI
                     switch (MineGrid.GameGrid[x, y])
                     {
                         case -1:
-                            // TODO - Bomb image
-                            label.Text = "B";
+                            // label.Text = "B";
+                            Image img = Resources.bombImage;
+                            label.Image = new Bitmap(img, new Size(CellWidth, CellHeight));
                             break;
 
                         case 0:
