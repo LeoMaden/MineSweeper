@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.FlagsRemainingLabel = new System.Windows.Forms.Label();
+            this.GridBoundaryPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // FlagsRemainingLabel
@@ -40,12 +41,21 @@
             this.FlagsRemainingLabel.TabIndex = 0;
             this.FlagsRemainingLabel.Text = "xxx";
             // 
+            // GridBoundaryPanel
+            // 
+            this.GridBoundaryPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.GridBoundaryPanel.Location = new System.Drawing.Point(58, 97);
+            this.GridBoundaryPanel.Name = "GridBoundaryPanel";
+            this.GridBoundaryPanel.Size = new System.Drawing.Size(684, 440);
+            this.GridBoundaryPanel.TabIndex = 1;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.GridBoundaryPanel);
             this.Controls.Add(this.FlagsRemainingLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -62,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label FlagsRemainingLabel;
+        private System.Windows.Forms.Panel GridBoundaryPanel;
     }
 }

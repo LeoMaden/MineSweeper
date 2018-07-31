@@ -19,8 +19,8 @@ namespace WindowsFormsUI
         private int GridHeight;
         private int GridMines;
 
-        private const int CellWidth = 30;
-        private const int CellHeight = 30;
+        private int CellWidth;
+        private int CellHeight;
 
         private Panel GridPanel = new Panel();
         private int GridPanelWidth;
@@ -41,20 +41,6 @@ namespace WindowsFormsUI
             0xF518D3  // 8 bombs: Deep pink
         };
 
-        private void GameForm_Load(object sender, EventArgs e)
-        {
-            // Set usable area to full size of form.
-            this.ClientSize = this.Size;
-
-            InitialiseGridPanel();
-            DrawBehindGrid();
-            DrawFrontGrid();
-
-            // Set number of flags left to number of bombs on grid.
-            FlagsRemaining = GridMines;
-            UpdateFlagsRemainingLabel();
-        }
-
         public GameForm(int gridWidth, int gridHeight, int gridMines)
         {
             // Set fields from constructor parameters.
@@ -67,6 +53,29 @@ namespace WindowsFormsUI
             
 
             InitializeComponent();
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            // Set usable area to full size of form.
+            this.ClientSize = this.Size;
+
+            // Get possible cell sizes from how many could fit inside boundary.
+            int cellSize2 = GridBoundaryPanel.Width / GridWidth;
+            int cellSize1 = GridBoundaryPanel.Height / GridHeight;
+
+            int minCellSize = Math.Min(cellSize1, cellSize2);
+
+            CellWidth = minCellSize;
+            CellHeight = minCellSize;
+
+            InitialiseGridPanel();
+            DrawBehindGrid();
+            DrawFrontGrid();
+
+            // Set number of flags left to number of bombs on grid.
+            FlagsRemaining = GridMines;
+            UpdateFlagsRemainingLabel();
         }
 
         private void GameForm_CellButtonClicked(object sender, EventArgs e)
@@ -219,13 +228,13 @@ namespace WindowsFormsUI
             // Set properties of GridPanel.
             GridPanel.Size = new Size(GridPanelWidth, GridPanelHeight);
 
-            GridPanel.Left = (this.Width - GridPanelWidth) / 2;
-            GridPanel.Top = 120;
+            GridPanel.Left = (GridBoundaryPanel.Width - GridPanelWidth) / 2;
+            GridPanel.Top = (GridBoundaryPanel.Height - GridPanelHeight) / 2;
             GridPanel.Padding = new Padding(0);
             GridPanel.Margin = new Padding(0);
             GridPanel.BorderStyle = BorderStyle.FixedSingle;
 
-            Controls.Add(GridPanel);
+            GridBoundaryPanel.Controls.Add(GridPanel);
         }
 
         private void DrawBehindGrid()
