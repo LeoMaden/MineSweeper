@@ -140,7 +140,17 @@ namespace WindowsFormsUI
                 // Bomb on clicked location.
                 case -1:
                     buttonClicked.Hide();
+
+                    foreach (Control control in GridPanel.Controls)
+                    {
+                        if (control is Button button)
+                        {
+                            button.Hide();
+                        }
+                    }
+
                     MessageBox.Show("You lost");
+
                     this.DestroyHandle();
                     break;
                 // Otherwise.
