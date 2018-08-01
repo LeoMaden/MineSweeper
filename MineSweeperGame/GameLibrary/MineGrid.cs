@@ -29,12 +29,12 @@ namespace GameLibrary
                 throw new InvalidOperationException("Too many mines");
             }
 
-            // Initialise grid.
-            PlaceMines();
-            GenerateBombMarkers();
+            //// Initialise grid.
+            //PlaceMines();
+            //GenerateBombMarkers();
         }
 
-        private void PlaceMines()
+        public void PlaceMines(int userX, int userY)
         {
             // Repeat for each mine to be placed.
             for (int i = 0; i < NumberOfMines; i++)
@@ -48,8 +48,8 @@ namespace GameLibrary
                     int randX = rand.Next(Width);
                     int randY = rand.Next(Height);
 
-                    // If position is empty.
-                    if (GameGrid[randX, randY] == 0)
+                    // If position is empty and location is not where user has moved.
+                    if ((GameGrid[randX, randY]) == 0 && (randX != userX) && (randY != userY))
                     {
                         // Set position to bomb.
                         GameGrid[randX, randY] = -1;
@@ -59,7 +59,7 @@ namespace GameLibrary
             }
         }
 
-        private void GenerateBombMarkers()
+        public void GenerateBombMarkers()
         {
             for (int x = 0; x < Width; x++)
             {

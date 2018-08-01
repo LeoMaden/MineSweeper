@@ -70,7 +70,6 @@ namespace WindowsFormsUI
             CellHeight = minCellSize;
 
             InitialiseGridPanel();
-            DrawBehindGrid();
             DrawFrontGrid();
 
             // Set number of flags left to number of bombs on grid.
@@ -83,6 +82,22 @@ namespace WindowsFormsUI
             // Cast eventargs and object to correct type.
             MouseEventArgs mouseEvent = (MouseEventArgs)e;
             Button buttonClicked = (Button)sender;
+
+            // If this is the user's first move.
+            if (CellsUncovered == 0)
+            {
+                // Coords of click.
+                int userX = ((Tuple<int, int>)(buttonClicked.Tag)).Item1;
+                int userY = ((Tuple<int, int>)(buttonClicked.Tag)).Item2;
+
+                // Place mines, not where user clicked.
+                MineGrid.PlaceMines(userX, userY);
+
+                // Generate markers of how many bombs are around location.
+                MineGrid.GenerateBombMarkers();
+
+                DrawBehindGrid();
+            }
 
             switch (mouseEvent.Button)
             {
